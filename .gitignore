@@ -1,0 +1,58 @@
+# MS Access Database Files
+*.accdb
+*.mdb
+*.laccdb
+*.ldb
+
+# Large data exports (unless explicitly needed)
+data/tables/*.csv
+data/exports/
+
+# Temporary Access files
+~$*.accdb
+~$*.mdb
+
+# VBA exports can be committed (they're text files)
+# Uncomment the next line if you don't want to commit VBA exports
+# vba-export/
+
+# OS Files
+.DS_Store
+Thumbs.db
+desktop.ini
+
+# IDE
+.vscode/
+.idea/
+*.swp
+*.swo
+*~
+
+# Logs
+*.log
+logs/
+
+# Environment files
+.env
+.env.local
+
+# Dependencies (if you add Laravel/Vue projects later)
+node_modules/
+vendor/
+composer.lock
+package-lock.json
+
+# Build outputs
+dist/
+build/
+public/hot
+public/storage
+
+# Laravel specific (for future use)
+storage/*.key
+.phpunit.result.cache
+
+# Vue specific (for future use)
+.nuxt/
+.output/
+.vite/

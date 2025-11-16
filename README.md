@@ -55,33 +55,59 @@ This documentation serves as a complete reference guide for developers tasked wi
 
 ### Next Steps
 
-1. **Upload the Access Database**
-   - Place the .accdb or .mdb file in the repository
-   - Document location in [Database Schema](./docs/02-DATABASE-SCHEMA.md)
+1. **Extract Database Information**
 
-2. **Extract Database Information**
-   - Use Microsoft Access Database Documenter
-   - Export VBA modules
-   - Document tables and relationships
+   The Access database file is: `Real - Operations Activity (07NOV2017) with campus visitors -master Copy.accdb`
 
-3. **Complete Documentation**
-   - Fill in `[TO BE COMPLETED]` sections
-   - Add actual table names and structures
-   - Document all VBA modules and functions
+   **Choose your extraction method:**
 
-4. **Begin Migration**
+   **Option A: Automated Extraction (Recommended)**
+   ```bash
+   # Using bash script (Linux/Mac with mdbtools)
+   chmod +x scripts/extract-access-data.sh
+   ./scripts/extract-access-data.sh "Real - Operations Activity (07NOV2017) with campus visitors -master Copy.accdb"
+
+   # OR using Python (Cross-platform, requires pyodbc)
+   pip install pyodbc pandas
+   python scripts/extract-access-data.py "Real - Operations Activity (07NOV2017) with campus visitors -master Copy.accdb"
+   ```
+
+   **Option B: Manual Extraction**
+   - Open `scripts/manual-extraction-guide.md` for step-by-step instructions
+   - Use the VBA export scripts provided
+   - Fill out `DATABASE-EXTRACTION-TEMPLATE.md` as you explore
+
+2. **Complete Documentation**
+   - Fill in `[TO BE COMPLETED]` sections in docs/
+   - Update `docs/02-DATABASE-SCHEMA.md` with actual tables
+   - Update `docs/03-VBA-MODULES.md` with actual VBA code
+   - Update `docs/04-FORMS-UI.md` with actual forms
+
+3. **Begin Migration**
    - Set up Laravel project
-   - Create migrations from schema
-   - Implement business logic
-   - Build Vue components
+   - Create migrations from extracted schema
+   - Implement business logic in Services
+   - Build Vue components based on forms
 
 ## Project Status
 
 - ✅ Documentation framework created
-- ⏳ Database schema extraction pending
-- ⏳ VBA modules documentation pending
-- ⏳ Forms documentation pending
+- ✅ Extraction tools and scripts created
+- ⏳ Database schema extraction pending (use scripts provided)
+- ⏳ VBA modules documentation pending (use scripts provided)
+- ⏳ Forms documentation pending (use manual guide)
 - ⏳ Migration implementation pending
+
+## Extraction Tools
+
+The repository includes several tools to help extract data from the Access database:
+
+- **`scripts/extract-access-data.sh`** - Bash script using mdbtools (Linux/Mac)
+- **`scripts/extract-access-data.py`** - Python script using pyodbc (Cross-platform)
+- **`scripts/manual-extraction-guide.md`** - Step-by-step manual extraction guide
+- **`DATABASE-EXTRACTION-TEMPLATE.md`** - Template for documenting findings
+
+See `scripts/README.md` for detailed usage instructions.
 
 ## Contributing
 
